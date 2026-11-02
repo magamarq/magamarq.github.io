@@ -1,50 +1,70 @@
-# Hi, I'm María Gabriela Marquina
+<p align="center">
+  <img src="./public/avatars/magamarq-indigo.webp" alt="Portrait of María Marquina" width="168" />
+</p>
+
+<h1 align="center">Hi, I'm María Gabriela Marquina</h1>
+
+<p align="center">
+  <strong>Billing · Collections · Operations · Psychology</strong><br />
+  <a href="https://magamarq.github.io/">magamarq.github.io</a>
+  ·
+  <a href="https://magamarq.github.io/cv-es/">CV ES</a>
+  ·
+  <a href="https://magamarq.github.io/cv-en/">CV EN</a>
+</p>
 
 I handle billing, accounts receivable, reconciliations, document control, and
 executive support. I am also studying Psychology, because I like understanding
 people as much as I like balancing numbers.
 
-This site is how I introduce myself online. It is in Spanish first, because
-that is the language I work in, with an English toggle for international
-teams. You will find my career experience, direct ways to reach me (email and
-LinkedIn), and my CV in both languages, ready to download.
+This repo is my public introduction. Spanish comes first (that is the language
+I work in), with an English toggle for international teams. On the site you
+will find my career path across Venezuela, Chile, and Argentina, direct contact
+links, and printable CVs in both languages.
 
-It lives at [magamarq.github.io](https://magamarq.github.io/).
+<p align="center">
+  <img src="./public/avatars/magamarq-indigo.webp" alt="Indigo classic look" width="72" />
+  &nbsp;
+  <img src="./public/avatars/magamarq-blush.webp" alt="Blush classic look" width="72" />
+  &nbsp;
+  <img src="./public/avatars/magamarq-elite.webp" alt="Elite classic look" width="72" />
+</p>
+
+<p align="center"><em>Three palettes on the live site. Pick a look. Stay yourself.</em></p>
 
 ## How I built it
 
-I wanted something fast and simple, no admin panel, no tracking banners. So I
-built a static site with [Astro](https://astro.build/) 7, a bit of CSS, and
-some browser-side JavaScript. No UI framework. It deploys to GitHub Pages,
-which hosts it for free.
+I wanted something fast and simple: no admin panel, no cookie walls. So I built
+a static site with [Astro](https://astro.build/) 7, plain CSS, and a little
+browser-side JavaScript. No UI framework. It deploys to GitHub Pages for free.
 
 If you want one page that says who I am, what I have done, and how to reach
-me, this is it.
+me, [open the site](https://magamarq.github.io/).
 
 ## Project structure
 
 ```text
 .
 ├── public/
-│   └── avatars/               # 9 avatar portraits (webp for display, png for favicon)
+│   └── avatars/               # 9 portraits (3 palettes × 3 styles)
 ├── src/
-│   ├── data/profile.ts        # Everything people read about me lives here
-│   ├── layouts/Layout.astro   # Document shell, metadata, and analytics
+│   ├── data/profile.ts        # Public copy, contact, avatar map
+│   ├── layouts/Layout.astro   # Document shell, metadata, analytics
 │   ├── pages/
-│   │   ├── index.astro        # Main bilingual profile page
-│   │   ├── cv-es.astro        # Printable Harvard CV in Spanish (/cv-es/)
-│   │   └── cv-en.astro        # Printable Harvard CV in English (/cv-en/)
-│   └── styles/global.css      # Styles and theme tokens
-├── astro.config.mjs           # Astro config and GitHub Pages URL
-├── PRODUCT.md                 # Positioning and content constraints
-├── RELEASE.md                 # How releases and content corrections work
+│   │   ├── index.astro        # Bilingual profile page
+│   │   ├── cv-es.astro        # Printable Harvard CV · Spanish
+│   │   └── cv-en.astro        # Printable Harvard CV · English
+│   └── styles/global.css      # Theme tokens and layout
+├── astro.config.mjs           # Astro config + GitHub Pages URL
+├── PRODUCT.md                 # Positioning and content boundaries
+├── RELEASE.md                 # Deploy, rollback, content corrections
 └── package.json
 ```
 
-All the public copy, experience, tools, education, contact labels, and avatar
-mappings live in `src/data/profile.ts`. Change things there, not in the
-generated output: `.astro/` holds generated types, `dist/` is build output,
-and `public/` is copied as-is into the published site.
+All public copy, experience, tools, education, contact labels, and avatar
+mappings live in `src/data/profile.ts`. Edit the source. Leave generated
+output alone: `.astro/` is types, `dist/` is the build, `public/` is copied
+into the published site as-is.
 
 ## Running it
 
@@ -72,16 +92,16 @@ The lockfile is `bun.lock`, so use Bun for everything here.
    in `src/data/profile.ts`.
 2. When my resume changes, update `src/pages/cv-es.astro` and
    `src/pages/cv-en.astro`.
-3. Keep avatar mappings in `src/data/profile.ts` aligned with the optimized
-   files in `public/avatars/`.
+3. Keep avatar mappings in `src/data/profile.ts` aligned with the files in
+   `public/avatars/`.
 4. Respect the privacy boundary in `PRODUCT.md`: no private journals,
    messages, galleries, or relationship records go on this site.
 5. Run `bun run build`, then check both languages, all nine palette and
    portrait combinations, the contact links, and both printable CV pages
    (`/cv-es/` and `/cv-en/`).
 
-[RELEASE.md](./RELEASE.md) covers deployment, rollback, and GitHub Pages
-details. Never fix public content by editing `dist/`.
+[RELEASE.md](./RELEASE.md) covers deployment, rollback, and GitHub Pages.
+Never fix public content by editing `dist/`.
 
 ## More reading
 
