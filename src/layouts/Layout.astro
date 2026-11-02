@@ -1,0 +1,70 @@
+---
+import { profile } from '../data/profile';
+
+interface Props {
+	title?: string;
+	description?: string;
+	lang?: string;
+}
+
+const {
+	title = `${profile.displayName} · Éxito del Cliente y Operaciones Comerciales`,
+	description = `Perfil profesional de ${profile.displayName}: facturación, cuentas por cobrar, conciliaciones bancarias y coordinación operativa.`,
+	lang = 'es-AR',
+} = Astro.props;
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+---
+
+<!doctype html>
+<html lang={lang} data-palette="indigo">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#f6f7fc" data-theme-color />
+		<meta property="og:type" content="profile" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:locale" content={lang} />
+		<meta property="og:image" content="/avatars/magamarq-indigo.webp" />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="icon" type="image/png" href="/avatars/magamarq-indigo.png" data-favicon />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Person',
+			name: profile.canonicalName,
+			jobTitle: 'Customer Success & Business Operations',
+			url: canonicalUrl.toString(),
+			sameAs: ['https://www.linkedin.com/in/maríagabriela-marquina-2bb380159'],
+			knowsAbout: ['Billing', 'Accounts receivable', 'Reconciliations', 'Client operations'],
+		})} />
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPZ2LB1QE0"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-LPZ2LB1QE0');
+		</script>
+		<!-- Microsoft Clarity -->
+		<script is:inline type="text/javascript">
+			(function(c,l,a,r,i,t,y){
+				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+			})(window, document, "clarity", "script", "yz6y1565d0");
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

@@ -1,0 +1,448 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="María Marquina · CV (Español)"
+	description="Currículum Vitae de María Marquina, en Éxito del Cliente y Operaciones Comerciales: facturación, cuentas por cobrar, conciliaciones y soporte ejecutivo."
+	lang="es-AR"
+>
+	<style is:global>
+		:root {
+			color-scheme: light;
+			--text-main: #000000;
+			--text-body: #111111;
+			--text-secondary: #222222;
+			--border-rule: #000000;
+			--link-color: #111111;
+			--link-hover: #b57614;
+			--ui-bg: #fbf1c7;
+			--ui-border: #d5c4a1;
+			--ui-text: #282828;
+			--btn-primary-bg: #b57614;
+			--btn-primary-hover: #8f5d0f;
+			--btn-secondary-bg: #ebdbb2;
+			--btn-secondary-border: #bdae93;
+			--btn-secondary-hover: #d5c4a1;
+			--font-serif: 'Georgia', 'Cambria', 'Times New Roman', Times, serif;
+			--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+		}
+		@page {
+			size: letter;
+			margin: 0.5in;
+		}
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-family: var(--font-serif);
+			color: var(--text-body);
+			line-height: 1.38;
+			font-size: 10pt;
+			background-color: #f7f7f8;
+			padding: 2rem 1rem;
+			-webkit-font-smoothing: antialiased;
+		}
+		.container {
+			max-width: 8.5in;
+			margin: 0 auto;
+			background-color: #ffffff;
+			padding: 0.5in;
+			border: 1px solid #e2e8f0;
+			box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+		}
+		.no-print {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			margin-bottom: 1.75rem;
+			padding: 0.85rem 1.15rem;
+			background-color: var(--ui-bg);
+			border: 1px solid var(--ui-border);
+			border-radius: 6px;
+			font-family: var(--font-sans);
+			font-size: 0.9rem;
+			color: var(--ui-text);
+		}
+		.no-print .bar-title {
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			font-weight: 600;
+		}
+		.no-print .bar-subtitle {
+			font-weight: 400;
+			color: #504945;
+		}
+		.no-print .bar-actions {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		.btn-primary {
+			background-color: var(--btn-primary-bg);
+			color: #ffffff !important;
+			border: none;
+			padding: 0.5rem 1rem;
+			font-weight: 600;
+			font-size: 0.85rem;
+			border-radius: 4px;
+			cursor: pointer;
+			font-family: var(--font-sans);
+			text-decoration: none;
+		}
+		.btn-primary:hover {
+			background-color: var(--btn-primary-hover);
+		}
+		.btn-secondary {
+			background-color: var(--btn-secondary-bg);
+			color: var(--ui-text) !important;
+			border: 1px solid var(--btn-secondary-border);
+			padding: 0.45rem 0.85rem;
+			font-weight: 600;
+			font-size: 0.85rem;
+			border-radius: 4px;
+			cursor: pointer;
+			font-family: var(--font-sans);
+			text-decoration: none;
+		}
+		.btn-secondary:hover {
+			background-color: var(--btn-secondary-hover);
+		}
+		header {
+			text-align: center;
+			margin-bottom: 0.9rem;
+		}
+		h1 {
+			font-size: 19pt;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: var(--text-main);
+			margin-bottom: 0.25rem;
+		}
+		.headline {
+			font-size: 10pt;
+			font-weight: 600;
+			color: var(--text-secondary);
+			margin-bottom: 0.35rem;
+		}
+		.contact-links {
+			font-size: 9pt;
+			color: var(--text-body);
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 0.4rem 0.65rem;
+		}
+		.contact-links span.sep {
+			color: #7c6f64;
+		}
+		.contact-links a {
+			color: var(--link-color);
+			text-decoration: underline;
+			text-underline-offset: 2px;
+		}
+		section {
+			margin-bottom: 0.95rem;
+			break-inside: avoid;
+		}
+		h2 {
+			font-size: 10.5pt;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: var(--text-main);
+			border-bottom: 1.5px solid var(--border-rule);
+			padding-bottom: 0.15rem;
+			margin-top: 0.85rem;
+			margin-bottom: 0.45rem;
+			letter-spacing: 0.75px;
+		}
+		.summary-text {
+			font-size: 9.5pt;
+			line-height: 1.4;
+			color: var(--text-body);
+			text-align: justify;
+		}
+		.skills-category {
+			margin-bottom: 0.3rem;
+			font-size: 9.5pt;
+			line-height: 1.38;
+		}
+		.skills-category strong {
+			font-weight: 700;
+			color: var(--text-main);
+		}
+		.entry {
+			margin-bottom: 0.65rem;
+			break-inside: avoid;
+		}
+		.entry-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			font-weight: 700;
+			font-size: 10pt;
+			color: var(--text-main);
+		}
+		.entry-subheader {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			font-size: 9.5pt;
+			color: var(--text-secondary);
+			margin-bottom: 0.2rem;
+		}
+		.entry-subheader .role {
+			font-weight: 600;
+			font-style: italic;
+		}
+		ul.bullet-list {
+			margin-left: 1.15rem;
+			margin-top: 0.2rem;
+			margin-bottom: 0.3rem;
+		}
+		ul.bullet-list li {
+			font-size: 9.5pt;
+			line-height: 1.38;
+			margin-bottom: 0.22rem;
+			color: var(--text-body);
+			text-align: left;
+		}
+		@media print {
+			body {
+				background-color: transparent !important;
+				padding: 0 !important;
+			}
+			.container {
+				max-width: 100% !important;
+				width: 100% !important;
+				padding: 0 !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+			.no-print {
+				display: none !important;
+			}
+			a {
+				text-decoration: none !important;
+				color: #000000 !important;
+			}
+		}
+	</style>
+	<div class="container">
+		<div class="no-print">
+			<div>
+				<div class="bar-title">📄 Currículum Vitae · María Marquina (Español)</div>
+				<div class="bar-subtitle">Formato Harvard · Compatible con lectores ATS</div>
+			</div>
+			<div class="bar-actions">
+				<a class="btn-secondary" href="/">← Volver al inicio</a>
+				<a class="btn-secondary" href="/cv-en/">English Version</a>
+				<button class="btn-primary" onclick="window.print()">Imprimir / Guardar como PDF</button>
+			</div>
+		</div>
+
+		<header>
+			<h1>María Gabriela Marquina Graterol</h1>
+			<div class="headline">Éxito del Cliente y Operaciones Comerciales | Facturación y Cuentas por Cobrar | Soporte Ejecutivo</div>
+			<div class="contact-links">
+				<span>Buenos Aires, Argentina (Disponible Remoto / Presencial)</span>
+				<span class="sep">•</span>
+				<a href="mailto:maga.marqg@gmail.com">maga.marqg@gmail.com</a>
+				<span class="sep">•</span>
+				<a href="https://www.linkedin.com/in/maríagabriela-marquina-2bb380159" target="_blank" rel="noreferrer">LinkedIn</a>
+			</div>
+		</header>
+
+		<section>
+			<h2>Resumen Profesional</h2>
+			<p class="summary-text">
+				Analista administrativa con más de cinco años en facturación, cuentas por cobrar (A/R), conciliaciones bancarias multimoneda y control de expedientes comerciales en fintech, distribución mayorista y servicios en Venezuela, Chile y Argentina. El trabajo diario incluye facturación fiscal en Profit Plus ERP, conciliaciones de bancos y POS, auditoría de legajos mercantiles y arqueos de caja. Estudiante de la Licenciatura en Psicología en la Universidad de Buenos Aires (UBA). Herramientas: Microsoft Excel, Profit Plus ERP, dashboards operativos y facturación electrónica.
+			</p>
+		</section>
+
+		<section>
+			<h2>Competencias Clave</h2>
+			<div class="skills-category">
+				<strong>Gestión Administrativa y Cuentas por Cobrar (A/R):</strong> Conciliaciones bancarias y pasarelas de pago, cobranza preventiva y de cartera vencida, emisión de facturación fiscal, notas de crédito/débito, arqueo y control de caja diaria.
+			</div>
+			<div class="skills-category">
+				<strong>Operaciones Comerciales y Atención al Cliente:</strong> Alta documental de clientes corporativos, procesamiento de órdenes de compra web, gestión de trámites bancarios y cuentas recaudadoras, resolución de incidencias operativas.
+			</div>
+			<div class="skills-category">
+				<strong>Auditoría Documental y Legal:</strong> Custodia y administración de expedientes físicos y digitales, control de matrices de requisitos normativos, confección y revisión de contratos comerciales.
+			</div>
+			<div class="skills-category">
+				<strong>Sistemas y Herramientas:</strong> Microsoft Excel (Tablas dinámicas, fórmulas lógicas, cruce de datos y reportes), Microsoft Office 365, Google Workspace, ERP Profit Plus, HubSpot CRM, Zendesk, Dashboards internos de gestión, Looker Studio, Airtable, Notion, Slack, Trello, Asana, Zoom, Calendly, Zapier, ChatGPT, Gemini, Microsoft Copilot.
+			</div>
+		</section>
+
+		<section>
+			<h2>Experiencia Laboral</h2>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>!OMG SPA</span>
+					<span>Buenos Aires, Argentina</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Coordinadora de Atención al Cliente y Gestión Operativa</span>
+					<span>Noviembre 2023 – Presente</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Coordina la recepción, agenda diaria de turnos y asignación de profesionales y gabinetes durante cada jornada.</li>
+					<li>Administra el flujo de caja diario, cobros mediante tarjetas, transferencias bancarias y efectivo, y arqueos de cierre.</li>
+					<li>Atiende consultas presenciales y por WhatsApp, reprogramaciones y reclamos de servicio, dando seguimiento a la cartera de clientes.</li>
+					<li>Controla el inventario de insumos operativos, registrando rotación de stock y pedidos de reposición a proveedores.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Distribuidora Jamila</span>
+					<span>Santiago, Chile (Remoto / Híbrido)</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Analista Administrativa y de Operaciones</span>
+					<span>Mayo 2023 – Octubre 2023</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Gestionó el ciclo operativo de ventas online y despacho de órdenes de compra recibidas a través de la plataforma web.</li>
+					<li>Verificó transferencias bancarias entrantes y ejecutó conciliaciones diarias de pagos contra estados de cuenta bancarios.</li>
+					<li>Emitió facturación electrónica, notas de crédito y débito alineadas con los pedidos despachados.</li>
+					<li>Realizó el cuadre diario de caja y saldos de cierre, conciliando diferencias entre ventas registradas y fondos acreditados.</li>
+					<li>Brindó soporte directo a clientes vía canales digitales para consultas sobre facturación, pagos y estado de entregas.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Vepagos</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Analista de Administración y Cuentas por Cobrar</span>
+					<span>Octubre 2022 – Mayo 2023</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Ejecutó la conciliación de pagos provenientes de ventas de terminales de punto de venta (POS) y liquidación de recaudaciones.</li>
+					<li>Coordinó el alta y la validación documental de nuevos comercios afiliados en la base de datos operativa.</li>
+					<li>Confeccionó cotizaciones comerciales, emitió facturas fiscales y procesó notas de crédito bajo normativas impositivas vigentes.</li>
+					<li>Auditó y calculó las liquidaciones mensuales de comisiones a aliados comerciales para su desembolso.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Disglobal</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Ejecutiva de Cuentas y Operaciones de Ventas</span>
+					<span>Julio 2022 – Octubre 2022</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Coordinó la interlocución con entidades bancarias para la gestión y asignación de códigos de afiliación y apertura de cuentas.</li>
+					<li>Monitoreó solicitudes comerciales en el sistema interno Dashboard, supervisando el flujo hasta la entrega efectiva de equipos.</li>
+					<li>Elaboró estadísticas mensuales de gestión operativa sobre volumen de solicitudes y efectividad en tiempos de entrega.</li>
+				</ul>
+
+				<div class="entry-subheader" style="margin-top: 0.35rem;">
+					<span class="role">Analista de Cobranzas y Cartera</span>
+					<span>Febrero 2022 – Julio 2022</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Supervisó la recaudación de tarifas de mantenimiento y conectividad de dispositivos POS, recuperando montos en mora.</li>
+					<li>Contactó de manera directa a titulares de comercios para la negociación y regularización de deudas vencidas.</li>
+					<li>Atendió y solucionó incidencias operativas reportadas por los comercios para evitar bajas de servicio.</li>
+				</ul>
+
+				<div class="entry-subheader" style="margin-top: 0.35rem;">
+					<span class="role">Analista de Facturación y Contratos</span>
+					<span>Julio 2020 – Febrero 2022</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Procesó la emisión masiva de facturación legal, notas de crédito y notas de entrega mediante el sistema ERP <strong>Profit Plus</strong>.</li>
+					<li>Elaboró y revisó contratos comerciales para cada nuevo cliente afiliado a la red de pagos.</li>
+					<li>Administró el control de inventario transitorio y traslado de terminales POS a nivel nacional.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Corporación Total Pago Plus</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Analista de Archivo y Cumplimiento Documental</span>
+					<span>Febrero 2019 – Julio 2020</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Custodió el archivo físico y digital de expedientes comerciales y bancarios preparados para auditorías internas y de bancos aliados.</li>
+					<li>Auditó la documentación de comercios postulantes bajo matrices de requisitos y normativas de cumplimiento corporativo.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Tribunal Trigésimo de Municipio Ordinario y Ejecutor de Medidas</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Asistente Legal y Administrativa</span>
+					<span>Abril 2014 – Febrero 2018</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Asistió en la sustanciación, foliación y resguardo de expedientes judiciales en materia civil, mercantil y ejecución de medidas.</li>
+					<li>Redactó proyectos de autos, oficios de notificación y comunicaciones oficiales bajo supervisión letrada.</li>
+					<li>Atendió consultas procesales de abogados y público general en mesa de entradas.</li>
+				</ul>
+			</div>
+		</section>
+
+		<section>
+			<h2>Educación y Formación</h2>
+			<div class="entry-header">
+				<span>Universidad de Buenos Aires (UBA)</span>
+				<span>Buenos Aires, Argentina</span>
+			</div>
+			<div class="entry-subheader">
+				<span class="role">Licenciatura en Psicología (En curso)</span>
+				<span>2024 – Presente</span>
+			</div>
+
+			<div class="entry-header" style="margin-top: 0.35rem;">
+				<span>Universidad Central de Venezuela (UCV)</span>
+				<span>Caracas, Venezuela</span>
+			</div>
+			<div class="entry-subheader">
+				<span class="role">Formación Universitaria en Derecho / Ciencias Jurídicas</span>
+				<span>2014 – 2019</span>
+			</div>
+
+			<div class="entry-header" style="margin-top: 0.35rem;">
+				<span>Liceo · Educación media técnica</span>
+				<span>Caracas, Venezuela</span>
+			</div>
+			<div class="entry-subheader">
+				<span class="role">Técnico Medio en Procesamiento de Datos</span>
+				<span>Egresada</span>
+			</div>
+
+			<div class="skills-category" style="margin-top: 0.35rem;">
+				<strong>Cursos y Herramientas Digitales:</strong> Facturación Electrónica • Microsoft Excel (Tablas Dinámicas) • ERP Profit Plus • Google Workspace • Notion / HubSpot CRM / Zendesk / Asana / Slack / Trello / Zoom / Calendly / Zapier • Looker Studio / Airtable • Asistentes de IA (ChatGPT, Gemini, Microsoft Copilot).
+			</div>
+		</section>
+
+		<section>
+			<h2>Idiomas</h2>
+			<p class="skills-category"><strong>Español:</strong> Nativo • <strong>Inglés:</strong> Básico / Técnico</p>
+		</section>
+	</div>
+</Layout>

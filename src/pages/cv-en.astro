@@ -1,0 +1,448 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="María Marquina · CV (English)"
+	description="Curriculum Vitae of María Marquina, in Customer Success & Business Operations: billing, accounts receivable, reconciliations, and executive support."
+	lang="en-US"
+>
+	<style is:global>
+		:root {
+			color-scheme: light;
+			--text-main: #000000;
+			--text-body: #111111;
+			--text-secondary: #222222;
+			--border-rule: #000000;
+			--link-color: #111111;
+			--link-hover: #b57614;
+			--ui-bg: #fbf1c7;
+			--ui-border: #d5c4a1;
+			--ui-text: #282828;
+			--btn-primary-bg: #b57614;
+			--btn-primary-hover: #8f5d0f;
+			--btn-secondary-bg: #ebdbb2;
+			--btn-secondary-border: #bdae93;
+			--btn-secondary-hover: #d5c4a1;
+			--font-serif: 'Georgia', 'Cambria', 'Times New Roman', Times, serif;
+			--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+		}
+		@page {
+			size: letter;
+			margin: 0.5in;
+		}
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-family: var(--font-serif);
+			color: var(--text-body);
+			line-height: 1.38;
+			font-size: 10pt;
+			background-color: #f7f7f8;
+			padding: 2rem 1rem;
+			-webkit-font-smoothing: antialiased;
+		}
+		.container {
+			max-width: 8.5in;
+			margin: 0 auto;
+			background-color: #ffffff;
+			padding: 0.5in;
+			border: 1px solid #e2e8f0;
+			box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+		}
+		.no-print {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			margin-bottom: 1.75rem;
+			padding: 0.85rem 1.15rem;
+			background-color: var(--ui-bg);
+			border: 1px solid var(--ui-border);
+			border-radius: 6px;
+			font-family: var(--font-sans);
+			font-size: 0.9rem;
+			color: var(--ui-text);
+		}
+		.no-print .bar-title {
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			font-weight: 600;
+		}
+		.no-print .bar-subtitle {
+			font-weight: 400;
+			color: #504945;
+		}
+		.no-print .bar-actions {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		.btn-primary {
+			background-color: var(--btn-primary-bg);
+			color: #ffffff !important;
+			border: none;
+			padding: 0.5rem 1rem;
+			font-weight: 600;
+			font-size: 0.85rem;
+			border-radius: 4px;
+			cursor: pointer;
+			font-family: var(--font-sans);
+			text-decoration: none;
+		}
+		.btn-primary:hover {
+			background-color: var(--btn-primary-hover);
+		}
+		.btn-secondary {
+			background-color: var(--btn-secondary-bg);
+			color: var(--ui-text) !important;
+			border: 1px solid var(--btn-secondary-border);
+			padding: 0.45rem 0.85rem;
+			font-weight: 600;
+			font-size: 0.85rem;
+			border-radius: 4px;
+			cursor: pointer;
+			font-family: var(--font-sans);
+			text-decoration: none;
+		}
+		.btn-secondary:hover {
+			background-color: var(--btn-secondary-hover);
+		}
+		header {
+			text-align: center;
+			margin-bottom: 0.9rem;
+		}
+		h1 {
+			font-size: 19pt;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: var(--text-main);
+			margin-bottom: 0.25rem;
+		}
+		.headline {
+			font-size: 10pt;
+			font-weight: 600;
+			color: var(--text-secondary);
+			margin-bottom: 0.35rem;
+		}
+		.contact-links {
+			font-size: 9pt;
+			color: var(--text-body);
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 0.4rem 0.65rem;
+		}
+		.contact-links span.sep {
+			color: #7c6f64;
+		}
+		.contact-links a {
+			color: var(--link-color);
+			text-decoration: underline;
+			text-underline-offset: 2px;
+		}
+		section {
+			margin-bottom: 0.95rem;
+			break-inside: avoid;
+		}
+		h2 {
+			font-size: 10.5pt;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: var(--text-main);
+			border-bottom: 1.5px solid var(--border-rule);
+			padding-bottom: 0.15rem;
+			margin-top: 0.85rem;
+			margin-bottom: 0.45rem;
+			letter-spacing: 0.75px;
+		}
+		.summary-text {
+			font-size: 9.5pt;
+			line-height: 1.4;
+			color: var(--text-body);
+			text-align: justify;
+		}
+		.skills-category {
+			margin-bottom: 0.3rem;
+			font-size: 9.5pt;
+			line-height: 1.38;
+		}
+		.skills-category strong {
+			font-weight: 700;
+			color: var(--text-main);
+		}
+		.entry {
+			margin-bottom: 0.65rem;
+			break-inside: avoid;
+		}
+		.entry-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			font-weight: 700;
+			font-size: 10pt;
+			color: var(--text-main);
+		}
+		.entry-subheader {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			font-size: 9.5pt;
+			color: var(--text-secondary);
+			margin-bottom: 0.2rem;
+		}
+		.entry-subheader .role {
+			font-weight: 600;
+			font-style: italic;
+		}
+		ul.bullet-list {
+			margin-left: 1.15rem;
+			margin-top: 0.2rem;
+			margin-bottom: 0.3rem;
+		}
+		ul.bullet-list li {
+			font-size: 9.5pt;
+			line-height: 1.38;
+			margin-bottom: 0.22rem;
+			color: var(--text-body);
+			text-align: left;
+		}
+		@media print {
+			body {
+				background-color: transparent !important;
+				padding: 0 !important;
+			}
+			.container {
+				max-width: 100% !important;
+				width: 100% !important;
+				padding: 0 !important;
+				border: none !important;
+				box-shadow: none !important;
+			}
+			.no-print {
+				display: none !important;
+			}
+			a {
+				text-decoration: none !important;
+				color: #000000 !important;
+			}
+		}
+	</style>
+	<div class="container">
+		<div class="no-print">
+			<div>
+				<div class="bar-title">📄 Curriculum Vitae · María Marquina (English)</div>
+				<div class="bar-subtitle">Harvard format · Compatible with ATS parsers</div>
+			</div>
+			<div class="bar-actions">
+				<a class="btn-secondary" href="/">← Back to home</a>
+				<a class="btn-secondary" href="/cv-es/">Versión en Español</a>
+				<button class="btn-primary" onclick="window.print()">Print / Save as PDF</button>
+			</div>
+		</div>
+
+		<header>
+			<h1>María Gabriela Marquina Graterol</h1>
+			<div class="headline">Customer Success &amp; Business Operations | Billing &amp; A/R | Executive Support</div>
+			<div class="contact-links">
+				<span>Buenos Aires, Argentina (Available Remote / On-Site)</span>
+				<span class="sep">•</span>
+				<a href="mailto:maga.marqg@gmail.com">maga.marqg@gmail.com</a>
+				<span class="sep">•</span>
+				<a href="https://www.linkedin.com/in/maríagabriela-marquina-2bb380159" target="_blank" rel="noreferrer">LinkedIn</a>
+			</div>
+		</header>
+
+		<section>
+			<h2>Executive Summary</h2>
+			<p class="summary-text">
+				Administrative and operations analyst with five-plus years in billing, accounts receivable (A/R), multi-currency bank reconciliations, and commercial records for fintech, wholesale, and client-service companies in Venezuela, Chile, and Argentina. Day-to-day work covers tax invoicing in Profit Plus ERP, daily bank and POS reconciliations, merchant dossier audits, and cash closeouts. Currently studying Psychology at the University of Buenos Aires (UBA). Tools: Microsoft Excel, Profit Plus ERP, operational dashboards, and electronic invoicing.
+			</p>
+		</section>
+
+		<section>
+			<h2>Core Competencies</h2>
+			<div class="skills-category">
+				<strong>Administrative Management &amp; Accounts Receivable (A/R):</strong> Multi-currency bank reconciliations, payment gateway settlement, aging report monitoring, preventive and past-due collections, electronic tax invoicing, credit/debit memos, and cash reconciliation.
+			</div>
+			<div class="skills-category">
+				<strong>Client Operations &amp; Customer Success:</strong> B2B/B2C client onboarding, e-commerce purchase order fulfillment, merchant account processing, banking coordination, ticket resolution, and client retention follow-up.
+			</div>
+			<div class="skills-category">
+				<strong>Legal Compliance &amp; Document Control:</strong> Custody and audit of commercial and legal dossiers, regulatory compliance matrices, contract drafting/review, and formal institutional correspondence.
+			</div>
+			<div class="skills-category">
+				<strong>Tools &amp; Platforms:</strong> Microsoft Excel (Pivot tables, lookup functions, logic formulas, reporting), Microsoft Office 365, Google Workspace, ERP Profit Plus, HubSpot CRM, Zendesk, internal CRM/dashboards, Looker Studio, Airtable, Notion, Slack, Trello, Asana, Zoom, Calendly, Zapier, ChatGPT, Gemini, Microsoft Copilot.
+			</div>
+		</section>
+
+		<section>
+			<h2>Professional Experience</h2>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>!OMG SPA</span>
+					<span>Buenos Aires, Argentina</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Client Care &amp; Operations Coordinator</span>
+					<span>November 2023 – Present</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Coordinate front-desk reception, daily appointment calendars, and specialist room assignments across daily service shifts.</li>
+					<li>Process daily point-of-sale (POS) transactions across card processors, bank transfers, and cash, completing end-of-day register closeouts.</li>
+					<li>Handle in-person and WhatsApp client inquiries, reschedule requests, and service complaints, maintaining repeat bookings.</li>
+					<li>Track consumable inventory levels, logging supply usage and coordinating vendor restocking orders.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Distribuidora Jamila</span>
+					<span>Santiago, Chile (Hybrid / Remote)</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Administrative &amp; Operations Analyst</span>
+					<span>May 2023 – October 2023</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Processed e-commerce purchase orders from download through review and warehouse dispatch preparation.</li>
+					<li>Verified incoming electronic bank transfers and performed daily payment reconciliations against banking statements and gateway settlements.</li>
+					<li>Issued digital tax invoices and credit notes, verifying line-item consistency against dispatch manifests and warehouse records.</li>
+					<li>Balanced daily sales revenues against verified bank deposits, resolving transactional discrepancies and open receivables.</li>
+					<li>Delivered direct customer support via online channels to address invoice inquiries and shipment status updates.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Vepagos</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Administrative &amp; Accounts Receivable Analyst</span>
+					<span>October 2022 – May 2023</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Reconciled high-volume payments from Point of Sale (POS) hardware sales and recurring merchant membership subscriptions.</li>
+					<li>Managed merchant onboarding by auditing and verifying commercial legal documentation within the central database.</li>
+					<li>Generated commercial price quotes, issued tax-compliant invoices, and processed credit memos according to fiscal regulations.</li>
+					<li>Audited and calculated monthly commission settlements for distribution partners before payout.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Disglobal</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Account Executive &amp; Sales Operations</span>
+					<span>July 2022 – October 2022</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Coordinated directly with commercial banking institutions to process merchant codes and open collection accounts.</li>
+					<li>Tracked client requests through internal dashboard systems, monitoring order progression until POS terminal deployment.</li>
+					<li>Compiled monthly operational metric reports for executive management, detailing processing throughput and delivery lead times.</li>
+				</ul>
+
+				<div class="entry-subheader" style="margin-top: 0.35rem;">
+					<span class="role">Collections &amp; Accounts Receivable Analyst</span>
+					<span>February 2022 – July 2022</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Managed collection campaigns for recurring POS connectivity and maintenance fees, securing timely payment of delinquent accounts.</li>
+					<li>Contacted merchant representatives directly to negotiate payment plans and reconcile past-due balances.</li>
+					<li>Resolved billing disputes with merchant contacts to keep accounts current on the network.</li>
+				</ul>
+
+				<div class="entry-subheader" style="margin-top: 0.35rem;">
+					<span class="role">Billing &amp; Contracts Analyst</span>
+					<span>July 2020 – February 2022</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Generated high-volume billing manifests, invoices, and delivery notes using <strong>Profit Plus</strong> ERP software.</li>
+					<li>Drafted, validated, and managed standard commercial service contracts for newly affiliated merchants.</li>
+					<li>Oversaw temporary hardware inventory during staging and coordinated cross-state equipment logistics.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>Corporación Total Pago Plus</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Document Compliance &amp; Records Analyst</span>
+					<span>February 2019 – July 2020</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Maintained physical and digital archives of commercial merchant files prepared for internal and partner-bank audits.</li>
+					<li>Screened merchant application dossiers against AML/KYC risk matrices and banking compliance guidelines.</li>
+				</ul>
+			</div>
+
+			<div class="entry">
+				<div class="entry-header">
+					<span>30th Municipal Court of the Metropolitan Area of Caracas</span>
+					<span>Caracas, Venezuela</span>
+				</div>
+				<div class="entry-subheader">
+					<span class="role">Legal &amp; Administrative Assistant</span>
+					<span>April 2014 – February 2018</span>
+				</div>
+				<ul class="bullet-list">
+					<li>Supported the management, page-numbering, and preservation of judicial case files in civil, commercial, and enforcement jurisdictions.</li>
+					<li>Drafted routine court orders, summons, official notices, and procedural writs under judicial supervision.</li>
+					<li>Provided public-facing guidance and case status information to attorneys, court officers, and litigants at the clerk's office.</li>
+				</ul>
+			</div>
+		</section>
+
+		<section>
+			<h2>Education &amp; Training</h2>
+			<div class="entry-header">
+				<span>University of Buenos Aires (UBA)</span>
+				<span>Buenos Aires, Argentina</span>
+			</div>
+			<div class="entry-subheader">
+				<span class="role">Bachelor’s Degree in Psychology (In Progress)</span>
+				<span>2024 – Present</span>
+			</div>
+
+			<div class="entry-header" style="margin-top: 0.35rem;">
+				<span>Central University of Venezuela (UCV)</span>
+				<span>Caracas, Venezuela</span>
+			</div>
+			<div class="entry-subheader">
+				<span class="role">Legal Studies / Law</span>
+				<span>2014 – 2019</span>
+			</div>
+
+			<div class="entry-header" style="margin-top: 0.35rem;">
+				<span>Liceo · Technical secondary education</span>
+				<span>Caracas, Venezuela</span>
+			</div>
+			<div class="entry-subheader">
+				<span class="role">Mid-Level Technician in Data Processing (Técnico Medio en Procesamiento de Datos)</span>
+				<span>Graduated</span>
+			</div>
+
+			<div class="skills-category" style="margin-top: 0.35rem;">
+				<strong>Certifications &amp; Digital Skills:</strong> Electronic Invoicing • Intermediate Microsoft Excel • ERP Systems (Profit Plus) • Google Workspace • Notion / HubSpot CRM / Zendesk / Asana / Slack / Trello / Zoom / Calendly / Zapier • Looker Studio / Airtable • AI assistants (ChatGPT, Gemini, Microsoft Copilot).
+			</div>
+		</section>
+
+		<section>
+			<h2>Languages</h2>
+			<p class="skills-category"><strong>Spanish:</strong> Native • <strong>English:</strong> Working Proficiency / Technical</p>
+		</section>
+	</div>
+</Layout>

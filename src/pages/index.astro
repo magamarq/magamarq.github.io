@@ -1,0 +1,742 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import { profile } from '../data/profile';
+import '../styles/global.css';
+
+const content = profile.languages.es;
+---
+
+<Layout
+	lang={content.locale}
+	title={`${profile.displayName} · ${content.title}`}
+	description={content.heroSupport}
+>
+	<a class="skip-link" href="#main-content">Saltar al contenido</a>
+	<header class="site-header">
+		<div class="shell nav-bar">
+			<a class="wordmark" href="/" aria-label={`${profile.displayName}, inicio`}>
+				<span class="wordmark-mark">
+					<img class="wordmark-avatar" src="/avatars/magamarq-indigo.png" alt="" width="34" height="34" data-nav-avatar />
+				</span>
+				<span>{profile.displayName}</span>
+			</a>
+			<nav class="site-nav" aria-label="Navegación principal">
+				<ul class="nav-links">
+					<li><a href="#profile" data-nav="profile" aria-current="true">{content.nav.profile}</a></li>
+					<li><a href="#foundation" data-nav="foundation">{content.nav.foundation}</a></li>
+					<li><a href="#operations" data-nav="operations">{content.nav.operations}</a></li>
+					<li><a href="#next-chapter" data-nav="nextChapter">{content.nav.nextChapter}</a></li>
+					<li><a href="#tools" data-nav="tools">{content.nav.tools}</a></li>
+					<li><a href="#contact" data-nav="contact">{content.nav.contact}</a></li>
+				</ul>
+			</nav>
+			<button class="language-toggle" type="button" data-language-toggle aria-label="Switch to English">EN</button>
+		</div>
+		<div class="scroll-progress-track" aria-hidden="true">
+			<div class="scroll-progress-bar" data-scroll-progress></div>
+		</div>
+	</header>
+
+	<main id="main-content">
+		<section class="shell hero" id="profile" aria-labelledby="hero-title">
+			<div class="hero-copy">
+				<h1 id="hero-title" data-copy-hero>
+					{content.hero.split(' | ').map((segment) => (
+						<span class="hero-segment">{segment}</span>
+					))}
+				</h1>
+				<p class="hero-support" data-copy="heroSupport">{content.heroSupport}</p>
+				<p class="availability">
+					<span class="status-dot" aria-hidden="true"></span>
+					<span data-copy="availability">{content.availability}</span>
+				</p>
+				<div class="actions hero-actions">
+					<a class="button" href="#foundation">
+						<span data-copy="secondaryCta">{content.secondaryCta}</span>
+						<svg class="btn-icon-trailing" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+							<path d="M8 3.5V12.5M8 12.5L4 8.5M8 12.5L12 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a>
+					<a class="button secondary" href="#contact">
+						<span data-copy="primaryCta">{content.primaryCta}</span>
+					</a>
+					<a class="button secondary button-ghost" href="/cv-es/" data-hero-cv>
+						<svg class="btn-icon-leading" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+							<path d="M9.5 2H4.5C3.94772 2 3.5 2.44772 3.5 3V13C3.5 13.5523 3.94772 14 4.5 14H11.5C12.0523 14 12.5 13.5523 12.5 13V5L9.5 2Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M9.5 2V5H12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						<span data-copy="cvCta">{content.cvCta}</span>
+					</a>
+				</div>
+			</div>
+			<div class="portrait-stage" data-portrait-stage>
+				<div class="portrait-frame">
+					<Image
+						class="portrait"
+						src={profile.avatars.indigo.classic}
+						alt={`Ilustración de ${profile.displayName}`}
+						width={460}
+						height={460}
+						loading="eager"
+						decoding="async"
+						fetchpriority="high"
+						data-portrait-image
+					/>
+				</div>
+				<div class="theme-dock lookbook" role="group" aria-label={content.theme.dialogLabel} data-theme-dialog>
+					<div class="lookbook-header">
+						<span class="lookbook-try-on" data-copy="themeTryOn">{content.theme.tryOn}</span>
+						<span class="theme-active-badge" data-active-look>
+							<span class="lookbook-hanger" aria-hidden="true"></span>
+							<span class="swatch-dot" data-active-swatch aria-hidden="true"></span>
+							<span class="lookbook-active-label">
+								<span class="visually-hidden" data-copy="themeActiveLook">{content.theme.activeLook}</span>
+								<span data-theme-label>Indigo · Clásico</span>
+							</span>
+						</span>
+					</div>
+					<div class="theme-dock-row lookbook-rail" data-palette-row>
+						<span class="theme-group-label" data-copy="themePaletteGroup">{content.theme.paletteGroup}</span>
+						<div class="theme-options">
+							<button class="theme-option lookbook-tag" type="button" data-palette="indigo" aria-pressed="true">
+								<span class="lookbook-hanger" aria-hidden="true"></span>
+								<span class="swatch-dot swatch-indigo" aria-hidden="true"></span>
+								<span data-palette-label="indigo">{content.theme.palettes.indigo}</span>
+							</button>
+							<button class="theme-option lookbook-tag" type="button" data-palette="blush" aria-pressed="false">
+								<span class="lookbook-hanger" aria-hidden="true"></span>
+								<span class="swatch-dot swatch-blush" aria-hidden="true"></span>
+								<span data-palette-label="blush">{content.theme.palettes.blush}</span>
+							</button>
+							<button class="theme-option lookbook-tag" type="button" data-palette="elite" aria-pressed="false">
+								<span class="lookbook-hanger" aria-hidden="true"></span>
+								<span class="swatch-dot swatch-elite" aria-hidden="true"></span>
+								<span data-palette-label="elite">{content.theme.palettes.elite}</span>
+							</button>
+						</div>
+					</div>
+					<div class="theme-dock-row lookbook-rail" data-portrait-row>
+						<span class="theme-group-label" data-copy="themePortraitGroup">{content.theme.portraitGroup}</span>
+						<div class="theme-options">
+							<button class="theme-option lookbook-tag" type="button" data-portrait="classic" aria-pressed="true">
+								<span class="lookbook-hanger" aria-hidden="true"></span>
+								<span data-portrait-label="classic">{content.theme.portraits.classic}</span>
+							</button>
+							<button class="theme-option lookbook-tag" type="button" data-portrait="anime" aria-pressed="false">
+								<span class="lookbook-hanger" aria-hidden="true"></span>
+								<span data-portrait-label="anime">{content.theme.portraits.anime}</span>
+							</button>
+							<button class="theme-option lookbook-tag" type="button" data-portrait="realistic" aria-pressed="false">
+								<span class="lookbook-hanger" aria-hidden="true"></span>
+								<span data-portrait-label="realistic">{content.theme.portraits.realistic}</span>
+							</button>
+						</div>
+					</div>
+					<p class="portrait-caption lookbook-caption" data-copy="themeCaption">{content.theme.caption}</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="shell">
+			<nav class="journey-compass" aria-label={content.journeyBar.ariaLabel} data-journey-compass>
+				<div class="journey-compass-endpoints">
+					<span class="journey-endpoint" data-copy="journeyPointA">{content.journeyBar.pointA}</span>
+					<span class="journey-endpoint-line" aria-hidden="true"></span>
+					<span class="journey-endpoint journey-endpoint-b" data-copy="journeyPointB">{content.journeyBar.pointB}</span>
+				</div>
+				<ol class="journey-steps" data-journey-steps>
+					{content.journeyBar.steps.map((step, index) => (
+						<li>
+							<a
+								class="journey-step-card"
+								href={`#${step.id}`}
+								data-journey-step={step.id}
+								aria-current={index === 0 ? 'step' : undefined}
+							>
+								<span class="journey-step-meta">
+									<span class="journey-step-code">{step.code}</span>
+									<span class="journey-step-city">{step.city}</span>
+								</span>
+								<span class="journey-step-label">{step.label}</span>
+							</a>
+						</li>
+					))}
+				</ol>
+			</nav>
+		</div>
+
+		<div class="story-spine-wrapper">
+			<section class="section story-chapter" id="foundation" aria-labelledby="foundation-title" data-chapter-section="foundation">
+				<div class="shell chapter-grid">
+					<div class="chapter-lead">
+						<h2 id="foundation-title" data-chapter-copy="foundation.title">{content.chapters.foundation.title}</h2>
+						<p class="chapter-body" data-chapter-copy="foundation.lead">{content.chapters.foundation.lead}</p>
+						<div class="chapter-takeaway">
+							<span class="takeaway-label" data-chapter-copy="foundation.step">{content.chapters.foundation.step}</span>
+							<p data-chapter-copy="foundation.takeaway">{content.chapters.foundation.takeaway}</p>
+						</div>
+					</div>
+					<div class="chapter-milestones" data-milestones="foundation">
+						{content.chapters.foundation.milestones.map((item, index) => (
+							<article class="milestone-card" style={`--stagger: ${index}`}>
+								<div class="milestone-header">
+									<span class="milestone-period">{item.period} · {item.location}</span>
+									<span class="milestone-tag">{item.tag}</span>
+								</div>
+								<h3>
+									<span class="company-name">{item.company}</span>
+									<span class="role-name">{item.role}</span>
+								</h3>
+								<p>{item.body}</p>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="section story-chapter" id="operations" aria-labelledby="operations-title" data-chapter-section="operations">
+				<div class="shell chapter-grid">
+					<div class="chapter-lead">
+						<h2 id="operations-title" data-chapter-copy="operations.title">{content.chapters.operations.title}</h2>
+						<p class="chapter-body" data-chapter-copy="operations.lead">{content.chapters.operations.lead}</p>
+						<div class="chapter-takeaway">
+							<span class="takeaway-label" data-chapter-copy="operations.step">{content.chapters.operations.step}</span>
+							<p data-chapter-copy="operations.takeaway">{content.chapters.operations.takeaway}</p>
+						</div>
+					</div>
+					<div class="chapter-milestones" data-milestones="operations">
+						{content.chapters.operations.milestones.map((item, index) => (
+							<article class="milestone-card" style={`--stagger: ${index}`}>
+								<div class="milestone-header">
+									<span class="milestone-period">{item.period} · {item.location}</span>
+									<span class="milestone-tag">{item.tag}</span>
+								</div>
+								<h3>
+									<span class="company-name">{item.company}</span>
+									<span class="role-name">{item.role}</span>
+								</h3>
+								<p>{item.body}</p>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="section story-chapter story-chapter-highlight" id="next-chapter" aria-labelledby="next-chapter-title" data-chapter-section="next-chapter">
+				<div class="shell chapter-grid">
+					<div class="chapter-lead">
+						<h2 id="next-chapter-title" data-chapter-copy="nextChapter.title">{content.chapters.nextChapter.title}</h2>
+						<p class="chapter-body" data-chapter-copy="nextChapter.lead">{content.chapters.nextChapter.lead}</p>
+						<div class="synthesis-equation" aria-label={content.chapters.nextChapter.bridgeLabel} data-bridge-equation>
+							<span class="takeaway-label" data-chapter-copy="nextChapter.step">{content.chapters.nextChapter.step}</span>
+							<div class="synthesis-pill">
+								<span class="synthesis-code">A</span>
+								<span data-chapter-copy="nextChapter.bridgeFrom">{content.chapters.nextChapter.bridgeFrom}</span>
+							</div>
+							<span class="synthesis-operator" aria-hidden="true">+</span>
+							<div class="synthesis-pill">
+								<span class="synthesis-code">Ψ</span>
+								<span data-chapter-copy="nextChapter.bridgeTo">{content.chapters.nextChapter.bridgeTo}</span>
+							</div>
+							<span class="synthesis-operator" aria-hidden="true">→</span>
+							<div class="synthesis-pill synthesis-pill-result">
+								<span class="synthesis-code">B</span>
+								<span data-chapter-copy="nextChapter.bridgeResult">{content.chapters.nextChapter.bridgeResult}</span>
+							</div>
+						</div>
+					</div>
+					<div class="chapter-milestones" data-milestones="nextChapter">
+						{content.chapters.nextChapter.milestones.map((item, index) => (
+							<article class="milestone-card milestone-card-featured" style={`--stagger: ${index}`}>
+								<div class="milestone-header">
+									<span class="milestone-period">{item.period} · {item.location}</span>
+									<span class="milestone-tag">{item.tag}</span>
+								</div>
+								<h3>
+									<span class="company-name">{item.company}</span>
+									<span class="role-name">{item.role}</span>
+								</h3>
+								<p>{item.body}</p>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<section class="section" id="strengths" aria-labelledby="strengths-title">
+			<div class="shell">
+				<div class="section-intro">
+					<h2 id="strengths-title" data-section-copy="strengths.title">{content.sections.strengths.title}</h2>
+					<p data-section-copy="strengths.body">{content.sections.strengths.body}</p>
+				</div>
+				<div class="strength-grid" data-strengths>
+					{content.strengths.map((item, index) => (
+						<article class="strength-item" style={`--stagger: ${index}`}>
+							<span class="strength-index">0{index + 1}</span>
+							<h3>{item.label}</h3>
+							<p>{item.body}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="tools" aria-labelledby="tools-title">
+			<div class="shell tools-layout">
+				<div>
+					<h2 id="tools-title" data-section-copy="tools.title">{content.sections.tools.title}</h2>
+					<p data-section-copy="tools.body">{content.sections.tools.body}</p>
+				</div>
+				<div class="tool-groups" data-tools>
+					{content.tools.map((group) => (
+						<div class="tool-group">
+							<h3>{group.label}</h3>
+							<ul class="tool-list">
+								{group.items.map((tool, index) => <li style={`--stagger: ${index}`}>{tool}</li>)}
+							</ul>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="contact" aria-labelledby="contact-title" data-chapter-section="contact">
+			<div class="shell contact-section">
+				<div class="contact-lead">
+					<h2 id="contact-title" data-section-copy="contact.title">{content.sections.contact.title}</h2>
+					<p data-section-copy="contact.body">{content.sections.contact.body}</p>
+					<div class="actions contact-actions">
+						<a class="button contact-btn contact-btn-primary" href={`mailto:${profile.contact.email}`}>
+							<svg class="btn-icon-leading" width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+								<rect x="2.5" y="4.25" width="15" height="11.5" rx="2" stroke="currentColor" stroke-width="1.5" />
+								<path d="M3 5.5L10 10.5L17 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+							<span data-copy="emailCta">{content.contactLabels.email}</span>
+							<svg class="btn-icon-trailing" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</a>
+						<a class="button contact-btn contact-btn-outline" href={profile.contact.linkedin} target="_blank" rel="noreferrer">
+							<svg class="btn-icon-leading" width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+								<rect x="3" y="3" width="14" height="14" rx="2.5" stroke="currentColor" stroke-width="1.5" />
+								<path d="M6.75 8.75V13.75M6.75 6.25V6.3M9.75 13.75V10.75C9.75 9.64543 10.6454 8.75 11.75 8.75C12.8546 8.75 13.75 9.64543 13.75 10.75V13.75M9.75 8.75V13.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+							<span data-copy="linkedinCta">{content.contactLabels.linkedin}</span>
+							<svg class="btn-icon-trailing" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</a>
+					</div>
+					<div class="actions cv-actions">
+						<a class="button secondary cv-btn" href="/cv-es/">
+							<svg class="btn-icon-leading" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M9.5 2H4.5C3.94772 2 3.5 2.44772 3.5 3V13C3.5 13.5523 3.94772 14 4.5 14H11.5C12.0523 14 12.5 13.5523 12.5 13V5L9.5 2Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M9.5 2V5H12.5M6 8.5H10M6 11H8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+							<span data-copy="esCv">{content.contactLabels.esCv}</span>
+							<span class="cv-badge">ES · PDF</span>
+						</a>
+						<a class="button secondary cv-btn" href="/cv-en/">
+							<svg class="btn-icon-leading" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M9.5 2H4.5C3.94772 2 3.5 2.44772 3.5 3V13C3.5 13.5523 3.94772 14 4.5 14H11.5C12.0523 14 12.5 13.5523 12.5 13V5L9.5 2Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M9.5 2V5H12.5M6 8.5H10M6 11H8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+							<span data-copy="enCv">{content.contactLabels.enCv}</span>
+							<span class="cv-badge">EN · PDF</span>
+						</a>
+					</div>
+				</div>
+				<div class="contact-links">
+					<a class="contact-link" href={`mailto:${profile.contact.email}`}>
+						<span class="contact-link-value">{profile.contact.email}</span>
+						<span class="contact-link-action">
+							<span data-contact-label="email">{content.contactLabels.email}</span>
+							<svg class="contact-link-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</a>
+					<a class="contact-link" href={profile.contact.linkedin} target="_blank" rel="noreferrer">
+						<span class="contact-link-value">LinkedIn</span>
+						<span class="contact-link-action">
+							<span data-contact-label="linkedin">{content.contactLabels.linkedin}</span>
+							<svg class="contact-link-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="shell footer-bar">
+			<span>{profile.displayName} · <span data-footer-text>Caracas → Santiago → Buenos Aires, Argentina</span></span>
+		</div>
+	</footer>
+
+	<script type="application/json" id="profile-data" set:html={JSON.stringify(profile)}></script>
+	<script>
+		const data = JSON.parse(document.querySelector('#profile-data')?.textContent || '{}');
+		const root = document.documentElement;
+		const languageToggle = document.querySelector('[data-language-toggle]');
+		const portraitImage = document.querySelector('[data-portrait-image]') as HTMLImageElement | null;
+		const portraitStage = document.querySelector('[data-portrait-stage]') as HTMLElement | null;
+		const faviconLink = document.querySelector('[data-favicon]') as HTMLLinkElement | null;
+		const navAvatar = document.querySelector('[data-nav-avatar]') as HTMLImageElement | null;
+		const themeColorMeta = document.querySelector('[data-theme-color]') as HTMLMetaElement | null;
+		const themeDialog = document.querySelector('[data-theme-dialog]') as HTMLElement | null;
+		const themeLabel = document.querySelector('[data-theme-label]');
+		const heroCvLink = document.querySelector('[data-hero-cv]') as HTMLAnchorElement | null;
+		const journeyCompass = document.querySelector('[data-journey-compass]') as HTMLElement | null;
+		const scrollProgressBar = document.querySelector('[data-scroll-progress]') as HTMLElement | null;
+
+		const validPalettes = ['indigo', 'blush', 'elite'];
+		const validPortraits = ['classic', 'anime', 'realistic'];
+		const validLanguages = ['es', 'en'];
+
+		let language = 'es';
+		let palette = 'indigo';
+		let portrait = 'classic';
+		let activeChapterId = 'foundation';
+
+		try {
+			const savedLang = localStorage.getItem('magamarq:lang');
+			const savedPalette = localStorage.getItem('magamarq:palette');
+			const savedPortrait = localStorage.getItem('magamarq:portrait');
+			if (savedLang && validLanguages.includes(savedLang)) language = savedLang;
+			if (savedPalette && validPalettes.includes(savedPalette)) palette = savedPalette;
+			if (savedPortrait && validPortraits.includes(savedPortrait)) portrait = savedPortrait;
+		} catch {}
+
+		const portraitSuffix: Record<string, string> = { classic: '', anime: '-anime', realistic: '-realistic' };
+
+		const themeColors: Record<string, string> = {
+			indigo: '#f6f7fc',
+			blush: '#fcf7f5',
+			elite: '#faf7f2',
+		};
+
+		const setText = (selector: string, value: string) => {
+			const node = document.querySelector(selector);
+			if (node && value) node.textContent = value;
+		};
+
+		const renderCollection = <T,>(selector: string, items: T[], render: (item: T, index: number) => string) => {
+			const node = document.querySelector(selector);
+			if (node) node.innerHTML = items.map(render).join('');
+		};
+
+		const renderMilestones = (chapterKey: string, items: Array<{ period: string; location: string; company: string; role: string; body: string; tag: string }>, featured = false) => {
+			renderCollection(
+				`[data-milestones="${chapterKey}"]`,
+				items,
+				(item, index) => `
+					<article class="milestone-card ${featured ? 'milestone-card-featured' : ''} is-visible" style="--stagger: ${index}">
+						<div class="milestone-header">
+							<span class="milestone-period">${item.period} · ${item.location}</span>
+							<span class="milestone-tag">${item.tag}</span>
+						</div>
+						<h3>
+							<span class="company-name">${item.company}</span>
+							<span class="role-name">${item.role}</span>
+						</h3>
+						<p>${item.body}</p>
+					</article>
+				`
+			);
+		};
+
+		const updateJourneyActiveState = (stepId: string) => {
+			activeChapterId = stepId;
+			document.querySelectorAll<HTMLAnchorElement>('[data-journey-step]').forEach((el) => {
+				if (el.dataset.journeyStep === stepId) {
+					el.setAttribute('aria-current', 'step');
+				} else {
+					el.removeAttribute('aria-current');
+				}
+			});
+			document.querySelectorAll<HTMLElement>('[data-chapter-section]').forEach((sec) => {
+				sec.classList.toggle('is-active-chapter', sec.dataset.chapterSection === stepId);
+			});
+		};
+
+		const updateThemeLabels = () => {
+			const current = data.languages[language];
+			if (!current?.theme) return;
+			const paletteName = current.theme.palettes[palette] || palette;
+			const portraitName = current.theme.portraits[portrait] || portrait;
+			if (themeLabel) themeLabel.textContent = `${paletteName} · ${portraitName}`;
+			if (themeDialog) themeDialog.setAttribute('aria-label', current.theme.dialogLabel);
+			setText('[data-copy="themeTryOn"]', current.theme.tryOn);
+			setText('[data-copy="themeActiveLook"]', current.theme.activeLook);
+			setText('[data-copy="themePaletteGroup"]', current.theme.paletteGroup);
+			setText('[data-copy="themePortraitGroup"]', current.theme.portraitGroup);
+			setText('[data-copy="themeCaption"]', current.theme.caption);
+			Object.entries(current.theme.palettes).forEach(([key, val]) => setText(`[data-palette-label="${key}"]`, val as string));
+			Object.entries(current.theme.portraits).forEach(([key, val]) => setText(`[data-portrait-label="${key}"]`, val as string));
+			if (portraitImage) {
+				portraitImage.alt = language === 'es'
+					? `Retrato ${portraitName.toLowerCase()} de ${data.name}`
+					: `${data.name}, ${portraitName.toLowerCase()} portrait`;
+			}
+		};
+
+		const renderLanguage = () => {
+			const current = data.languages[language];
+			document.documentElement.lang = current.locale;
+			document.title = `${data.name} · ${current.title}`;
+			const heroTitle = document.querySelector('[data-copy-hero]');
+			if (heroTitle) {
+				heroTitle.innerHTML = current.hero
+					.split(' | ')
+					.map((segment: string) => `<span class="hero-segment">${segment}</span>`)
+					.join(' ');
+			}
+			setText('[data-copy="heroSupport"]', current.heroSupport);
+			setText('[data-copy="availability"]', current.availability);
+			setText('[data-copy="primaryCta"]', current.primaryCta);
+			setText('[data-copy="secondaryCta"]', current.secondaryCta);
+			setText('[data-copy="cvCta"]', current.cvCta);
+			if (heroCvLink) {
+				heroCvLink.href = language === 'es' ? '/cv-es/' : '/cv-en/';
+			}
+			Object.entries(current.nav).forEach(([key, value]) => setText(`[data-nav="${key}"]`, value as string));
+
+			if (journeyCompass && current.journeyBar) {
+				journeyCompass.setAttribute('aria-label', current.journeyBar.ariaLabel);
+				setText('[data-copy="journeyPointA"]', current.journeyBar.pointA);
+				setText('[data-copy="journeyPointB"]', current.journeyBar.pointB);
+				renderCollection(
+					'[data-journey-steps]',
+					current.journeyBar.steps,
+					(step: { id: string; code: string; city: string; label: string }) => `
+						<li>
+							<a class="journey-step-card" href="#${step.id}" data-journey-step="${step.id}" ${step.id === activeChapterId ? 'aria-current="step"' : ''}>
+								<span class="journey-step-meta">
+									<span class="journey-step-code">${step.code}</span>
+									<span class="journey-step-city">${step.city}</span>
+								</span>
+								<span class="journey-step-label">${step.label}</span>
+							</a>
+						</li>
+					`
+				);
+			}
+
+			if (current.chapters) {
+				const { foundation, operations, nextChapter } = current.chapters;
+				setText('[data-chapter-copy="foundation.step"]', foundation.step);
+				setText('[data-chapter-copy="foundation.title"]', foundation.title);
+				setText('[data-chapter-copy="foundation.lead"]', foundation.lead);
+				setText('[data-chapter-copy="foundation.takeawayLabel"]', foundation.takeawayLabel);
+				setText('[data-chapter-copy="foundation.takeaway"]', foundation.takeaway);
+				renderMilestones('foundation', foundation.milestones, false);
+
+				setText('[data-chapter-copy="operations.step"]', operations.step);
+				setText('[data-chapter-copy="operations.title"]', operations.title);
+				setText('[data-chapter-copy="operations.lead"]', operations.lead);
+				setText('[data-chapter-copy="operations.takeawayLabel"]', operations.takeawayLabel);
+				setText('[data-chapter-copy="operations.takeaway"]', operations.takeaway);
+				renderMilestones('operations', operations.milestones, false);
+
+				setText('[data-chapter-copy="nextChapter.step"]', nextChapter.step);
+				setText('[data-chapter-copy="nextChapter.title"]', nextChapter.title);
+				setText('[data-chapter-copy="nextChapter.lead"]', nextChapter.lead);
+				const bridgeEquation = document.querySelector('[data-bridge-equation]');
+				if (bridgeEquation) bridgeEquation.setAttribute('aria-label', nextChapter.bridgeLabel);
+				setText('[data-chapter-copy="nextChapter.bridgeFrom"]', nextChapter.bridgeFrom);
+				setText('[data-chapter-copy="nextChapter.bridgeTo"]', nextChapter.bridgeTo);
+				setText('[data-chapter-copy="nextChapter.bridgeResult"]', nextChapter.bridgeResult);
+				renderMilestones('nextChapter', nextChapter.milestones, true);
+			}
+
+			Object.entries(current.sections).forEach(([section, values]) => {
+				Object.entries(values as Record<string, string>).forEach(([key, value]) => setText(`[data-section-copy="${section}.${key}"]`, value));
+			});
+			renderCollection('[data-strengths]', current.strengths, (item: { label: string; body: string }, index: number) => `<article class="strength-item is-visible" style="--stagger: ${index}"><span class="strength-index">0${index + 1}</span><h3>${item.label}</h3><p>${item.body}</p></article>`);
+			renderCollection('[data-tools]', current.tools, (group: { label: string; items: string[] }, groupIndex: number) => `<div class="tool-group is-visible" style="--stagger: ${groupIndex}"><h3>${group.label}</h3><ul class="tool-list">${group.items.map((tool: string, index: number) => `<li class="is-visible" style="--stagger: ${index}">${tool}</li>`).join('')}</ul></div>`);
+			document.querySelectorAll<HTMLElement>('[data-contact-label]').forEach((node) => {
+				const key = node.dataset.contactLabel;
+				if (key) node.textContent = current.contactLabels[key];
+			});
+			setText('[data-copy="emailCta"]', current.contactLabels.email);
+			setText('[data-copy="linkedinCta"]', current.contactLabels.linkedin);
+			setText('[data-copy="esCv"]', current.contactLabels.esCv);
+			setText('[data-copy="enCv"]', current.contactLabels.enCv);
+			if (languageToggle) {
+				languageToggle.textContent = language === 'es' ? 'EN' : 'ES';
+				languageToggle.setAttribute('aria-label', language === 'es' ? 'Switch to English' : 'Cambiar a español');
+			}
+			updateThemeLabels();
+		};
+
+		const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		const pulseTryOn = () => {
+			if (!themeDialog) return;
+			themeDialog.classList.remove('is-trying-on');
+			void themeDialog.offsetWidth;
+			themeDialog.classList.add('is-trying-on');
+			window.setTimeout(() => {
+				themeDialog.classList.remove('is-trying-on');
+			}, prefersReducedMotion() ? 80 : 280);
+		};
+
+		const renderTheme = (animatePortrait = false) => {
+			root.dataset.palette = palette;
+			if (faviconLink) faviconLink.href = `/avatars/magamarq-${palette}${portraitSuffix[portrait]}.png`;
+			if (navAvatar) navAvatar.src = data.avatars[palette][portrait];
+			if (themeColorMeta) themeColorMeta.content = themeColors[palette];
+			const nextSrc = data.avatars[palette][portrait];
+			const allowMotion = animatePortrait && !prefersReducedMotion();
+			if (portraitImage && portraitImage.getAttribute('src') !== nextSrc) {
+				if (allowMotion) {
+					portraitImage.dataset.switching = 'true';
+					window.setTimeout(() => {
+						portraitImage.src = nextSrc;
+						portraitImage.onload = () => {
+							delete portraitImage.dataset.switching;
+						};
+						window.setTimeout(() => {
+							delete portraitImage.dataset.switching;
+						}, 220);
+					}, 110);
+				} else {
+					portraitImage.src = nextSrc;
+					delete portraitImage.dataset.switching;
+				}
+			}
+			if (animatePortrait) pulseTryOn();
+			updateThemeLabels();
+			document.querySelectorAll<HTMLElement>('[data-palette]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.palette === palette)));
+			document.querySelectorAll<HTMLElement>('[data-portrait]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.portrait === portrait)));
+		};
+
+		let avatarsPreloaded = false;
+		const preloadAvatars = () => {
+			if (avatarsPreloaded) return;
+			avatarsPreloaded = true;
+			Object.values(data.avatars || {}).forEach((group: any) => {
+				Object.values(group || {}).forEach((src: any) => {
+					const img = new window.Image();
+					img.src = src;
+				});
+			});
+		};
+
+		portraitStage?.addEventListener('pointerenter', preloadAvatars, { once: true });
+		portraitStage?.addEventListener('focusin', preloadAvatars, { once: true });
+
+		languageToggle?.addEventListener('click', () => {
+			language = language === 'es' ? 'en' : 'es';
+			try { localStorage.setItem('magamarq:lang', language); } catch {}
+			renderLanguage();
+		});
+
+		document.querySelectorAll<HTMLElement>('[data-palette]').forEach((button) => button.addEventListener('click', () => {
+			preloadAvatars();
+			if (button.dataset.palette && button.dataset.palette !== palette) {
+				palette = button.dataset.palette;
+				try { localStorage.setItem('magamarq:palette', palette); } catch {}
+				renderTheme(true);
+			}
+		}));
+
+		document.querySelectorAll<HTMLElement>('[data-portrait]').forEach((button) => button.addEventListener('click', () => {
+			preloadAvatars();
+			if (button.dataset.portrait && button.dataset.portrait !== portrait) {
+				portrait = button.dataset.portrait;
+				try { localStorage.setItem('magamarq:portrait', portrait); } catch {}
+				renderTheme(true);
+			}
+		}));
+
+		renderLanguage();
+		renderTheme(false);
+
+		const observeReveals = () => {
+			const items = document.querySelectorAll('.strength-item, .milestone-card, .tool-list li');
+			if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				items.forEach((el) => el.classList.add('is-visible'));
+				return;
+			}
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
+			);
+			items.forEach((el) => observer.observe(el));
+		};
+
+		const observeSections = () => {
+			const sections = document.querySelectorAll('main section[id]');
+			const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-links a[href^="#"]');
+			if (!('IntersectionObserver' in window) || !sections.length) return;
+			const sectionObserver = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const id = entry.target.getAttribute('id') || '';
+							navLinks.forEach((link) => {
+								if (link.getAttribute('href') === `#${id}`) {
+									link.setAttribute('aria-current', 'true');
+								} else {
+									link.removeAttribute('aria-current');
+								}
+							});
+							if (['foundation', 'operations', 'next-chapter', 'contact'].includes(id)) {
+								updateJourneyActiveState(id);
+							}
+						}
+					});
+				},
+				{ rootMargin: '-28% 0px -55% 0px' }
+			);
+			sections.forEach((section) => sectionObserver.observe(section));
+		};
+
+		const bindScrollProgress = () => {
+			if (!scrollProgressBar) return;
+			let ticking = false;
+			const updateProgress = () => {
+				const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+				const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+				scrollProgressBar.style.transform = `scaleX(${ratio})`;
+				ticking = false;
+			};
+			window.addEventListener(
+				'scroll',
+				() => {
+					if (!ticking) {
+						window.requestAnimationFrame(updateProgress);
+						ticking = true;
+					}
+				},
+				{ passive: true }
+			);
+			updateProgress();
+		};
+
+		observeReveals();
+		observeSections();
+		bindScrollProgress();
+
+		portraitStage?.addEventListener('animationend', () => {
+			portraitStage.style.animation = 'none';
+		}, { once: true });
+
+		window.setTimeout(() => {
+			if (portraitStage) portraitStage.style.animation = 'none';
+		}, 360);
+	</script>
+</Layout>
