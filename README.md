@@ -2,7 +2,7 @@
   <img src="./public/avatars/magamarq-indigo.webp" alt="Portrait of María Marquina" width="168" />
 </p>
 
-<h1 align="center">Hi, I'm María Gabriela Marquina</h1>
+<h1 align="center">Hi, I'm María Marquina</h1>
 
 <p align="center">
   <strong>Billing · Collections · Operations · Psychology</strong><br />
