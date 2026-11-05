@@ -9,7 +9,7 @@ export const profile = {
 	firstName: 'María',
 	contact: {
 		email: 'maga.marqg@gmail.com',
-		linkedin: 'https://www.linkedin.com/in/maríagabriela-marquina-2bb380159',
+		linkedin: 'https://www.linkedin.com/in/magamarq',
 	},
 	avatars: {
 		indigo: {
